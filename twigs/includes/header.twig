@@ -1,34 +1,21 @@
-<header class="banner navbar navbar-default navbar-static-top" role="banner">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="{{ wp.home_url() }}">{{ wp.bloginfo('name') }}</a>
-    </div>
+<header class="banner" role="banner">
+	<div class="row" style="margin-top: 1em; margin-bottom: 1em;">
+		<a class="logo col-md-9 col-sm-12 " href="{{ wp.home_url }}" style="">
+			{{ wp.get_the_post_thumbnail(4) }}
+		</a>
 
-    <nav class="collapse navbar-collapse" role="navigation">
-        {% if wp.has_nav_menu('primary_navigation') %}
-            <div class="collapse navbar-collapse">
-                {{ wp.wp_nav_menu({
-                    'theme_location':'primary_navigation',
-                    'menu_class':'nav navbar-nav',
-                    'walker': wp.returnObject('wp_bootstrap_navwalker'),
-                    'container':false,
-                    'depth':2,
-                    'fallback_cb':'wp_bootstrap_navwalker::fallback'
-                }) }}
-                <form id="searchform" class="navbar-form navbar-right" role="search" action="{{ wp.site_url() }}" method="get">
-                    <div class="form-group">
-                        <input id="s" name="s" type="text" class="form-control" placeholder="" value="{{ wp.get_search_query() }}">
-                    </div>
-                    <button id="searchsubmit" type="submit" class="btn btn-default">Search</button>
-                </form>
-            </div>
-        {% endif %}
-    </nav>
-  </div>
+		<div class="col-sm-3">
+			<select style="width:100%">
+				<option selected="" value="Čeština">Čeština</option>
+				<option value="English">English</option>
+				<option value="Rusky">Rusky</option>
+			</select>
+
+			<div class="social">
+				<a href="{{ wp.get_option('social_links_jp')['twitter'] }}">TW</a>
+				<a href="{{ wp.get_option('social_links_jp')['linkedin'] }}">IN</a>
+				<a href="{{ wp.get_option('social_links_jp')['facebook'] }}">FB</a>
+			</div>
+		</div>
+	</div>
 </header>

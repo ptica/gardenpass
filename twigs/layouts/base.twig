@@ -1,18 +1,19 @@
+<!doctype html>
+<html class="no-js" {{ wp.language_attributes }}>
 {% include('includes/head.twig') %}
 
 <body {{ wp.body_class }} >
+	<div class="wrap container" role="document">
+		{% include('includes/header.twig') %}
+		{% include('includes/menu.twig') %}
 
-  {% include('includes/header.twig') %}
+		<div class="content">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</div>
 
-  <div class="wrap container" role="document">
-    <div class="content">
-      {% block content %}{% endblock %}
-    </div><!-- /.content -->
-  </div><!-- /.wrap -->
-
-  {% include('includes/footer.twig') %}
-
-  {{ wp.wp_footer }}
-
+	{% include('includes/footer.twig') %}
+	{{ wp.wp_footer }}
 </body>
 </html>
