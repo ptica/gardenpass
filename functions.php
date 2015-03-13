@@ -19,6 +19,9 @@ $sprig_includes = array(
 	'inc/scripts.php',                // Scripts and stylesheets
 	'inc/twigpress.php',                   // Load TwigPress Engine
 	'inc/extras.php',                  // Custom functions
+
+	'inc/slides.php',                  // Slides content type
+	'inc/admin_tweaks.php',            // Admin menus simplified
 );
 
 foreach ($sprig_includes as $file) {
